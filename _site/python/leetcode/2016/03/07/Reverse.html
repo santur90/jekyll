@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Reverse Linked List II —  &raquo;  清明天地 朗朗乾坤</title>
+<meta name="description" content="清明天地 朗朗乾坤
+">
+<meta name="keywords" content="">
+<link rel="canonical" href="http:///python/leetcode/2016/03/07/Reverse.html">
+        
+
+
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Reverse Linked List II" />
+<meta name="twitter:description" content="清明天地 朗朗乾坤
+" />
+<meta name="twitter:image" content="http://" />
+
+<!-- Google plus -->
+<meta name="author" content="">
+<link rel="author" href="">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reverse Linked List II">
+<meta property="og:description" content="清明天地 朗朗乾坤
+">
+<meta property="og:url" content="http:///python/leetcode/2016/03/07/Reverse.html">
+<meta property="og:site_name" content="清明天地 朗朗乾坤">
+
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/css/main.css">
+
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/solarized_dark.css">
+
+<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="navigation">
+        <a href="/" class="logo">清明天地 朗朗乾坤</a>
+
+        <ul class="menu">
+            <li class="menu__entry"><a href="/about">About</a></li>
+            <li class="menu__entry"><a href="/">Blog</a></li>
+        </ul>
+    </div>
+
+    <ul class="social-links">
+        
+            <a href="https://github.com/santur90" class="social-links__entry" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+        
+
+        
+    </ul>
+</header>
+
+            <h1 class="page-title post-title">
+    <div class="page-title__text post-title__text">Reverse Linked List II</div>
+    <div class="page-title__subtitle post-title__subtitle"></div>
+</h1>
+
+<div class="content">
+    <p>解题思路：</p>
+
+<p>就我目前学习到的，有用指向指针的指针的，有插入，有逆转的。但是所有方法的核心，都其实是一个算法，就是利用3个指针修改区间内的节点的next值，且要保证已修改的链表是可以被找到的，即可以连入原链表中。</p>
+
+<p>假设有一个链表有1,2,3,4,5,6，6个节点。m=2，n=5。</p>
+
+<p>我们添加一个dummy节点，方便操作第一个节点。</p>
+
+<p><img src="http://images.cnitblog.com/i/546654/201404/072244468407048.jpg" alt="sha" />
+首先让pre指向第m个节点前面那个，cur指向第m个节点，p1指向m的下一个节点，因为p1有可能是NULL，所以当p1不是NULL的时候，p2指向p1的下一个节点。</p>
+
+<p>上图画出了这几个指针指向情况的开始状态和我们希望的终止状态。</p>
+
+<p>在最终状态下，再通过其中方框中的两步就可以我们需要的链表了。</p>
+
+<p>而cur，p1，p2三个指针在区间内向前移动并且将p1的next指向cur的过程则包含在一个for循环内部。如下：
+<img src="http://images.cnitblog.com/i/546654/201404/072249466684683.jpg" alt="" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">head</span><span class="o">.</span><span class="nb">next</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">head</span>
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="n">dummy</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">head</span>
+        <span class="n">head1</span> <span class="o">=</span> <span class="n">dummy</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">head1</span> <span class="o">=</span> <span class="n">head1</span><span class="o">.</span><span class="nb">next</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">head1</span><span class="o">.</span><span class="nb">next</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">m</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">head1</span><span class="o">.</span><span class="nb">next</span>
+            <span class="n">head1</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="nb">next</span>
+            <span class="n">p</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="nb">next</span><span class="o">.</span><span class="nb">next</span>
+            <span class="n">head1</span><span class="o">.</span><span class="nb">next</span><span class="o">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">tmp</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="nb">next</span>
+</code></pre>
+</div>
+
+
+</div>
+
+<div class="about">
+    <div class="about__devider">*****</div>
+    <div class="about__text">
+        Written by <strong>  santur </strong>
+        on <strong>07 March 2016</strong>
+    </div>
+</div>
+
+
+        </div>
+
+        <script src="/assets/vendor/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+        
+    </body>
+</html>
