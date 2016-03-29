@@ -4,10 +4,10 @@
     <title>清明天地 朗朗乾坤</title>
     <description>清明天地 朗朗乾坤
 </description>
-    <link>http:///</link>
-    <atom:link href="http:///feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Mar 2016 16:46:31 +0800</pubDate>
-    <lastBuildDate>Tue, 29 Mar 2016 16:46:31 +0800</lastBuildDate>
+    <link>http://santur90.github.io//jekyll/</link>
+    <atom:link href="http://santur90.github.io//jekyll/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 29 Mar 2016 17:03:33 +0800</pubDate>
+    <lastBuildDate>Tue, 29 Mar 2016 17:03:33 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -48,8 +48,8 @@
 
 </description>
         <pubDate>Mon, 07 Mar 2016 07:34:01 +0800</pubDate>
-        <link>http:///python/leetcode/2016/03/07/Reverse.html</link>
-        <guid isPermaLink="true">http:///python/leetcode/2016/03/07/Reverse.html</guid>
+        <link>http://santur90.github.io//jekyll/python/leetcode/2016/03/07/Reverse.html</link>
+        <guid isPermaLink="true">http://santur90.github.io//jekyll/python/leetcode/2016/03/07/Reverse.html</guid>
         
         
         <category>Python</category>
