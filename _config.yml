@@ -3,8 +3,8 @@ title: 清明天地 朗朗乾坤
 description: >
     清明天地 朗朗乾坤
 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://" # the base hostname & protocol for your site
+baseurl: "/jekyll" # the subpath of your site, e.g. /blog/
+url: "http://santur90.github.io" # the base hostname & protocol for your site
 
 author:
   fullname: santur
